@@ -56,3 +56,21 @@
   padding-left: 1.2rem;
   line-height: 1.8;
 }
+
+@media (max-width: 480px) {
+  .app__header {
+    padding: 1rem;
+  }
+
+  .app__title {
+    font-size: 1.35rem;
+  }
+
+  .app__main {
+    padding: 1rem;
+  }
+
+  .app__nav-link {
+    font-size: 0.95rem;
+  }
+}
