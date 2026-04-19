@@ -37,3 +37,9 @@ This repository contains the **Frontend** implementation for the TripleTen Final
   /utils           # Impact calculation logic and API services
   /vendor          # Fonts and third-party assets
 ```
+## ✅ Stage 1 Checklist
+- [ ] Initialize Vite/React environment
+- [ ] Implement BEM-compliant styling
+- [ ] Connect to YNAB API for transaction data
+- [ ] Build "Impact Narrative" logic engine
+- [ ] Pass 80/100 assessment criteria

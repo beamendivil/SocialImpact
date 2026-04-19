@@ -1,7 +1,7 @@
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom'
-import DashboardPage from './pages/DashboardPage.jsx'
-import CommunityGoalsPage from './pages/CommunityGoalsPage.jsx'
-import './App.css'
+import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import DashboardPage from "../../pages/DashboardPage.jsx";
+import CommunityGoalsPage from "../../pages/CommunityGoalsPage.jsx";
+import "./App.css";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
             to="/"
             end
             className={({ isActive }) =>
-              `app__nav-link${isActive ? ' app__nav-link--active' : ''}`
+              `app__nav-link${isActive ? " app__nav-link--active" : ""}`
             }
           >
             Main Dashboard
@@ -21,7 +21,7 @@ function App() {
           <NavLink
             to="/community-goals"
             className={({ isActive }) =>
-              `app__nav-link${isActive ? ' app__nav-link--active' : ''}`
+              `app__nav-link${isActive ? " app__nav-link--active" : ""}`
             }
           >
             Community Goals
@@ -37,7 +37,7 @@ function App() {
         </Routes>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
