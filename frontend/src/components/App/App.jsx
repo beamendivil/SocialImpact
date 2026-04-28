@@ -1,38 +1,80 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import DashboardPage from "../../pages/DashboardPage.jsx";
 import CommunityGoalsPage from "../../pages/CommunityGoalsPage.jsx";
+import UIShowcasePage from "../../pages/UIShowcasePage.jsx";
 import "./App.css";
 
 function App() {
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 className="app__title">Social Impact</h1>
-        <nav className="app__nav" aria-label="Main navigation">
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              `app__nav-link${isActive ? " app__nav-link--active" : ""}`
-            }
-          >
-            Main Dashboard
-          </NavLink>
-          <NavLink
-            to="/community-goals"
-            className={({ isActive }) =>
-              `app__nav-link${isActive ? " app__nav-link--active" : ""}`
-            }
-          >
-            Community Goals
-          </NavLink>
-        </nav>
+    <div className="app-shell text-foreground">
+      <div className="app-shell__bg" aria-hidden="true" />
+
+      <header className="app-shell__header">
+        <div className="app-shell__header-inner">
+          <div className="app-shell__header-top">
+            <div>
+              <p className="app-shell__eyebrow">Civic Finance Lab</p>
+              <h1 className="app-shell__title">Social Impact</h1>
+            </div>
+            <div className="app-shell__badge">Stage 1 Prototype</div>
+          </div>
+
+          <nav className="app-shell__nav" aria-label="Main navigation">
+            <NavLink to="/" end className="contents">
+              {({ isActive }) => (
+                <Button
+                  variant={isActive ? "default" : "outline"}
+                  size="sm"
+                  className={cn(
+                    "app-shell__nav-link",
+                    !isActive && "bg-background/80 hover:bg-accent",
+                  )}
+                >
+                  Main Dashboard
+                </Button>
+              )}
+            </NavLink>
+            <NavLink to="/community-goals" className="contents">
+              {({ isActive }) => (
+                <Button
+                  variant={isActive ? "default" : "outline"}
+                  size="sm"
+                  className={cn(
+                    "app-shell__nav-link",
+                    !isActive && "bg-background/80 hover:bg-accent",
+                  )}
+                >
+                  Community Goals
+                </Button>
+              )}
+            </NavLink>
+            <NavLink to="/ui-showcase" className="contents">
+              {({ isActive }) => (
+                <Button
+                  variant={isActive ? "default" : "outline"}
+                  size="sm"
+                  className={cn(
+                    "app-shell__nav-link",
+                    !isActive && "bg-background/80 hover:bg-accent",
+                  )}
+                >
+                  UI Showcase
+                </Button>
+              )}
+            </NavLink>
+          </nav>
+        </div>
+        <Separator className="opacity-60" />
       </header>
 
-      <main className="app__main">
+      <main className="app-shell__main">
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/community-goals" element={<CommunityGoalsPage />} />
+          <Route path="/ui-showcase" element={<UIShowcasePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

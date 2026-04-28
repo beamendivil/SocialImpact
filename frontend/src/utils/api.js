@@ -4,6 +4,41 @@
  * this file handles "Saved Community Goals" that will eventually go to MongoDB.
  */
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
+async function fetchApi(pathname) {
+  const response = await fetch(`${API_BASE_URL}${pathname}`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "API request failed");
+  }
+
+  return data;
+}
+
+export async function getYnabBudgets() {
+  const payload = await fetchApi("/api/ynab/budgets");
+  return payload?.data?.budgets || [];
+}
+
+export async function getYnabTransactions(budgetId, sinceDate) {
+  if (!budgetId) {
+    throw new Error("budgetId is required to fetch transactions");
+  }
+
+  const sinceDateQuery = sinceDate
+    ? `?sinceDate=${encodeURIComponent(sinceDate)}`
+    : "";
+
+  const payload = await fetchApi(
+    `/api/ynab/transactions/${encodeURIComponent(budgetId)}${sinceDateQuery}`,
+  );
+
+  return payload?.data?.transactions || [];
+}
+
 // This simulates fetching "Saved Community Goals" from your future MongoDB
 export function getSavedGoals() {
   return new Promise((resolve) =>
