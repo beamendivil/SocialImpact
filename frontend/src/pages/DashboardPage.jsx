@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { getYnabBudgets, getYnabTransactions } from "@/utils/api";
+import { fetchTransactions } from "@/utils/ynabApi";
 import { calculateSocialImpact } from "@/utils/impactLogic";
 import { generateImpactNarrative } from "@/utils/impactNarrative";
 import "./DashboardPage.css";
@@ -252,37 +252,13 @@ function DashboardPage() {
           localCount: 0,
           lostValue: 0,
           betterStreets: 0,
-          reidParkZoo: 0,
-          generalFund: 0,
-        },
-      ),
-    [visibleTransactions],
-  );
-
-  const localShare = visibleTransactions.length
-    ? Math.round((totals.localCount / visibleTransactions.length) * 100)
-    : 0;
-
-  const narrative = useMemo(
-    () =>
-      generateImpactNarrative({
-        transactionCount: visibleTransactions.length,
-        localShare,
-        spend: totals.spend,
-        totalEconomicOutput: totals.impact,
-        lostValue: totals.lostValue,
-        betterStreets: totals.betterStreets,
-        reidParkZoo: totals.reidParkZoo,
-        generalFund: totals.generalFund,
-      }),
-    [localShare, totals, visibleTransactions.length],
-  );
-
-  const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 3);
-  };
-
-  return (
+            const apiTransactions = await fetchTransactions();
+            if (!Array.isArray(apiTransactions) || apiTransactions.length === 0) {
+              throw new Error("No transactions returned from API");
+            }
+            if (!isMounted) return;
+            setTransactions(apiTransactions);
+            setSourceLabel("Live YNAB data");
     <section className="dashboard-page">
       <Card className="dashboard-page__hero">
         <CardHeader>

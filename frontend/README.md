@@ -1,3 +1,15 @@
+# Project Criteria
+
+This project meets the following criteria for Stage 1 acceptance:
+
+- **No use of `overflow: hidden`**: Ensures true responsiveness at 320px width and prevents content clipping.
+- **Responsive Design**: All layouts and components are tested to work at a minimum width of 320px.
+- **BEM CSS Naming**: All CSS classes follow the strict block\_\_element--modifier convention.
+- **Semantic HTML**: Uses <header>, <nav>, <main>, <section>, and other semantic tags appropriately.
+- **API Service Layer**: All API calls are handled via native fetch in a dedicated service file.
+- **Stubbed Auth & API**: Simulated Promises for authentication and community goal saving allow review before backend is live.
+- **Vite Config**: The base path is set to `/social-impact/` for correct GitHub Pages deployment.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

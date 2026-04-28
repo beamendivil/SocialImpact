@@ -2,9 +2,12 @@ import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import DashboardPage from "../../pages/DashboardPage.jsx";
-import CommunityGoalsPage from "../../pages/CommunityGoalsPage.jsx";
-import UIShowcasePage from "../../pages/UIShowcasePage.jsx";
+import React, { Suspense, lazy } from "react";
+const DashboardPage = lazy(() => import("../../pages/DashboardPage.jsx"));
+const CommunityGoalsPage = lazy(
+  () => import("../../pages/CommunityGoalsPage.jsx"),
+);
+const UIShowcasePage = lazy(() => import("../../pages/UIShowcasePage.jsx"));
 import "./App.css";
 
 function App() {
@@ -71,12 +74,16 @@ function App() {
       </header>
 
       <main className="app-shell__main">
-        <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/community-goals" element={<CommunityGoalsPage />} />
-          <Route path="/ui-showcase" element={<UIShowcasePage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense
+          fallback={<div className="app-shell__loading">Loading...</div>}
+        >
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/community-goals" element={<CommunityGoalsPage />} />
+            <Route path="/ui-showcase" element={<UIShowcasePage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   );
