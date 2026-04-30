@@ -87,7 +87,6 @@ function isLikelyLocal(payeeName) {
 function toImpactTransaction(transaction) {
   const amountAsDollars = Math.abs(transaction.amount || 0) / 1000;
   const local = isLikelyLocal(transaction.payee_name);
-
   return {
     id: transaction.id,
     description:
@@ -252,13 +251,14 @@ function DashboardPage() {
           localCount: 0,
           lostValue: 0,
           betterStreets: 0,
-            const apiTransactions = await fetchTransactions();
-            if (!Array.isArray(apiTransactions) || apiTransactions.length === 0) {
-              throw new Error("No transactions returned from API");
-            }
-            if (!isMounted) return;
-            setTransactions(apiTransactions);
-            setSourceLabel("Live YNAB data");
+          reidParkZoo: 0,
+          generalFund: 0,
+        },
+      ),
+    [visibleTransactions],
+  );
+
+  return (
     <section className="dashboard-page">
       <Card className="dashboard-page__hero">
         <CardHeader>

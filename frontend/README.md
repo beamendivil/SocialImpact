@@ -1,3 +1,7 @@
+# Live Demo
+
+View the deployed project here: [https://beamendivil.github.io/SocialImpact/](https://beamendivil.github.io/SocialImpact/)
+
 # Project Criteria
 
 This project meets the following criteria for Stage 1 acceptance:
@@ -8,7 +12,7 @@ This project meets the following criteria for Stage 1 acceptance:
 - **Semantic HTML**: Uses <header>, <nav>, <main>, <section>, and other semantic tags appropriately.
 - **API Service Layer**: All API calls are handled via native fetch in a dedicated service file.
 - **Stubbed Auth & API**: Simulated Promises for authentication and community goal saving allow review before backend is live.
-- **Vite Config**: The base path is set to `/social-impact/` for correct GitHub Pages deployment.
+- **Vite Config**: The base path is set to `/SocialImpact/` for correct GitHub Pages deployment.
 
 # React + Vite
 
