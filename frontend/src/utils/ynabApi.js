@@ -1,10 +1,17 @@
 // Handles fetch requests to the backend proxy for YNAB transactions
 // Only native fetch is allowed
 
+const YNAB_API_URL = import.meta.env.VITE_YNAB_API_URL;
+const YNAB_API_KEY = import.meta.env.VITE_YNAB_API_KEY;
+
 export async function fetchTransactions() {
   try {
-    // For demo, fetch budgets first, then transactions for the first budget
-    const budgetsRes = await fetch("/api/ynab/budgets");
+    // Fetch budgets from YNAB API
+    const budgetsRes = await fetch(`${YNAB_API_URL}/budgets`, {
+      headers: {
+        Authorization: `Bearer ${YNAB_API_KEY}`,
+      },
+    });
     if (!budgetsRes.ok)
       throw new Error("Network response was not ok (budgets)");
     const budgetsData = await budgetsRes.json();
@@ -16,7 +23,12 @@ export async function fetchTransactions() {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
     const sinceDate = thirtyDaysAgo.toISOString().split("T")[0];
     const txRes = await fetch(
-      `/api/ynab/transactions/${encodeURIComponent(budgetId)}?sinceDate=${encodeURIComponent(sinceDate)}`,
+      `${YNAB_API_URL}/budgets/${encodeURIComponent(budgetId)}/transactions?since_date=${encodeURIComponent(sinceDate)}`,
+      {
+        headers: {
+          Authorization: `Bearer ${YNAB_API_KEY}`,
+        },
+      },
     );
     if (!txRes.ok)
       throw new Error("Network response was not ok (transactions)");

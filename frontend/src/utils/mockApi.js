@@ -1,7 +1,7 @@
 /**
- * API utilities for Stage 1.2
- * Uses real YNAB backend proxy requests where available.
- * Simulates auth and saved community goals until the full backend/database is ready.
+ * SIMULATED DATABASE API
+ * Real YNAB API is used via backend.
+ * Auth + goals are simulated for Stage 1 review.
  */
 
 const API_BASE_URL =
@@ -55,6 +55,10 @@ async function fetchApi(pathname) {
   }
 }
 
+/* =========================
+   YNAB REAL API (via backend)
+========================= */
+
 export async function getYnabBudgets() {
   const payload = await fetchApi("/api/ynab/budgets");
   return payload?.data?.budgets || [];
@@ -76,7 +80,10 @@ export async function getYnabTransactions(budgetId, sinceDate) {
   return payload?.data?.transactions || [];
 }
 
-// Simulates login until real auth is available
+/* =========================
+   AUTH (SIMULATED)
+========================= */
+
 export function login({ email, password }) {
   if (!email || !password) {
     return Promise.reject(new Error(REQUEST_ERROR_MESSAGE));
@@ -88,7 +95,6 @@ export function login({ email, password }) {
   });
 }
 
-// Simulates token validation until real auth is available
 export function checkToken(token) {
   if (token !== MOCK_TOKEN) {
     return Promise.reject(new Error(REQUEST_ERROR_MESSAGE));
@@ -97,12 +103,14 @@ export function checkToken(token) {
   return delay(MOCK_USER);
 }
 
-// Simulates fetching saved community goals from future MongoDB
+/* =========================
+   COMMUNITY GOALS (SIMULATED)
+========================= */
+
 export function getSavedGoals() {
   return delay(savedGoals);
 }
 
-// Simulates saving a new goal to the database
 export function saveGoal(goalData) {
   const newGoal = {
     ...goalData,
@@ -114,7 +122,6 @@ export function saveGoal(goalData) {
   return delay(newGoal);
 }
 
-// Simulates deleting a saved goal from the database
 export function deleteGoal(goalId) {
   savedGoals = savedGoals.filter((goal) => goal._id !== goalId);
 
