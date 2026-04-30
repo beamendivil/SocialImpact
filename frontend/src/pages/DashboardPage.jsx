@@ -211,7 +211,9 @@ function DashboardPage() {
           })),
         );
         setSourceLabel("Fallback sample data");
-        setErrorText(error.message || "Unable to load YNAB transactions");
+        setErrorText(
+          "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.",
+        );
       } finally {
         if (isMounted) {
           setIsLoading(false);
@@ -257,6 +259,14 @@ function DashboardPage() {
       ),
     [visibleTransactions],
   );
+
+  if (!isLoading && !errorText && transactions.length === 0) {
+    return (
+      <section className="dashboard-page">
+        <div className="dashboard-page__nothing-found">Nothing found</div>
+      </section>
+    );
+  }
 
   return (
     <section className="dashboard-page">
@@ -337,7 +347,9 @@ function DashboardPage() {
             </div>
             {errorText && (
               <p className="text-sm text-amber-700">
-                Live sync notice: {errorText}
+                Sorry, something went wrong during the request. There may be a
+                connection issue or the server may be down. Please try again
+                later.
               </p>
             )}
           </CardContent>
