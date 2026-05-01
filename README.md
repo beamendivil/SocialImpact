@@ -26,6 +26,21 @@ Traditional financial apps focus on personal wealth. **Social Impact** focuses o
 
 ---
 
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Deployment
+
+Live demo: [https://beamendivil.github.io/SocialImpact/](https://beamendivil.github.io/SocialImpact/)
+
+```bash
+npm run deploy
+```
+
 ## 🏗️ Project Structure
 
 This repository contains the **Frontend** implementation for the TripleTen Final Project.
