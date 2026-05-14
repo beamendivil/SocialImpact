@@ -9,10 +9,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import Preloader from "@/components/Preloader/Preloader";
 import { fetchDemoTransactions, fetchTransactions } from "@/utils/ynabApi";
 import { calculateSocialImpact } from "@/utils/impactLogic";
 import { generateImpactNarrative } from "@/utils/impactNarrative";
 import "./DashboardPage.css";
+
+const ITEMS_PER_PAGE = 3;
 
 // Sample transaction data for Stage 1.2 (will be replaced with real YNAB data in Stage 2)
 const SAMPLE_TRANSACTIONS = [
@@ -159,7 +162,7 @@ function DashboardPage() {
   const [sourceLabel, setSourceLabel] = useState("Loading");
   const [errorText, setErrorText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   useEffect(() => {
     let isMounted = true;
@@ -279,7 +282,17 @@ function DashboardPage() {
   );
 
   function handleShowMore() {
-    setVisibleCount((count) => Math.min(count + 6, transactions.length));
+    setVisibleCount((count) =>
+      Math.min(count + ITEMS_PER_PAGE, transactions.length),
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <section className="dashboard-page">
+        <Preloader />
+      </section>
+    );
   }
 
   if (!isLoading && !errorText && transactions.length === 0) {

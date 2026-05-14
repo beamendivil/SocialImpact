@@ -53,8 +53,14 @@ This repository contains the **Frontend** implementation for the TripleTen Final
   /vendor          # Fonts and third-party assets
 ```
 ## ✅ Stage 1 Checklist
-- [ ] Initialize Vite/React environment
-- [ ] Implement BEM-compliant styling
-- [ ] Connect to YNAB API for transaction data
-- [ ] Build "Impact Narrative" logic engine
-- [ ] Pass 80/100 assessment criteria
+- [x] Initialize Vite/React environment
+- [x] Implement BEM-compliant styling
+- [x] Add YNAB API request utilities with native `fetch()`
+- [x] Render API/demo transaction responses on the dashboard
+- [x] Show a preloader, empty state, and request error message
+- [x] Render transaction cards three at a time with a "Show more" control
+- [x] Simulate login and token-check responses for instructor access
+- [x] Simulate saved community goal API responses for future backend work
+- [x] Build "Impact Narrative" logic engine
+- [x] Deploy frontend to GitHub Pages
+- [ ] Submit the pull request from `stage-1-frontend-and-api` to `main`
