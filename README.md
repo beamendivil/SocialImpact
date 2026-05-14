@@ -41,6 +41,10 @@ Live demo: [https://beamendivil.github.io/SocialImpact/](https://beamendivil.git
 npm run deploy
 ```
 
+## Project Pitch Video
+
+Check out [this video](https://drive.google.com/file/d/1wv9ZFqH8dnsJEemUkKinr5ukfPZhEMOU/view?usp=sharing) where I describe my project and some challenges I faced while building it.
+
 ## 🏗️ Project Structure
 
 This repository contains the **Frontend** implementation for the TripleTen Final Project.
