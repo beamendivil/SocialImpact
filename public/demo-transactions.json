@@ -1,0 +1,50 @@
+[
+  {
+    "id": "demo-1",
+    "description": "Local Coffee Shop",
+    "amount": 5.5,
+    "isLocal": true,
+    "milliunits": 5500,
+    "date": "2026-04-28"
+  },
+  {
+    "id": "demo-2",
+    "description": "National Chain Restaurant",
+    "amount": 15,
+    "isLocal": false,
+    "milliunits": 15000,
+    "date": "2026-04-27"
+  },
+  {
+    "id": "demo-3",
+    "description": "Tucson Bookstore",
+    "amount": 24.99,
+    "isLocal": true,
+    "milliunits": 24990,
+    "date": "2026-04-26"
+  },
+  {
+    "id": "demo-4",
+    "description": "Gas Station",
+    "amount": 45,
+    "isLocal": false,
+    "milliunits": 45000,
+    "date": "2026-04-25"
+  },
+  {
+    "id": "demo-5",
+    "description": "Local Farmer's Market",
+    "amount": 35.75,
+    "isLocal": true,
+    "milliunits": 35750,
+    "date": "2026-04-24"
+  },
+  {
+    "id": "demo-6",
+    "description": "Big Box Store",
+    "amount": 120,
+    "isLocal": false,
+    "milliunits": 120000,
+    "date": "2026-04-23"
+  }
+]

@@ -1,0 +1,105 @@
+.ui-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ui-showcase__title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.ui-showcase__subtitle {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.ui-showcase__section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.ui-showcase__section-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.ui-showcase__grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.ui-showcase__demo {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  min-height: 130px;
+}
+
+.ui-showcase__demo h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+}
+
+.ui-showcase__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.ui-showcase__catalog {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.ui-showcase__catalog-card {
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  padding: 0.75rem;
+}
+
+.ui-showcase__catalog-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.ui-showcase__chips {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.ui-showcase__chip {
+  display: inline-block;
+  background: #eef2ff;
+  color: #1f2937;
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.ui-showcase__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ui-showcase__table th,
+.ui-showcase__table td {
+  border: 1px solid #d1d5db;
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.ui-showcase__small {
+  color: #6b7280;
+  font-size: 0.82rem;
+}

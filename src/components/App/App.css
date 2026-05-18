@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+.app-shell__header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.app-shell__header-inner {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding: 1.25rem 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.app-shell__header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.app-shell__bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(59, 130, 246, 0.2) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(16, 185, 129, 0.2) 0%,
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(243, 244, 246, 0.9) 100%
+    );
+}
+
+.app-shell__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.app-shell__title {
+  margin: 0.2rem 0 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  line-height: 1.05;
+  color: #111827;
+}
+
+.app-shell__badge {
+  display: none;
+  border-radius: 999px;
+  border: 1px solid rgba(4, 120, 87, 0.2);
+  background: rgba(16, 185, 129, 0.12);
+  color: #064e3b;
+  padding: 0.34rem 0.8rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.app-shell__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.app-shell__nav-link {
+  border-radius: 999px;
+}
+
+.app-shell__main {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding: 2rem 1rem 2.5rem;
+  animation: app-shell-fade-in 420ms ease-out;
+}
+
+@keyframes app-shell-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .app-shell__header-inner {
+    padding: 1.25rem 2rem;
+  }
+
+  .app-shell__badge {
+    display: block;
+  }
+
+  .app-shell__main {
+    padding-inline: 2rem;
+    padding-top: 2.4rem;
+  }
+}

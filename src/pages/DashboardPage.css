@@ -1,0 +1,154 @@
+.dashboard-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-page__hero {
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(122deg, #0f766e 0%, #0b4d7f 45%, #0b5563 100%);
+  box-shadow: 0 16px 40px rgba(15, 118, 110, 0.28);
+}
+
+.dashboard-page__hero-title {
+  font-size: clamp(1.6rem, 2.7vw, 2.35rem);
+  line-height: 1.1;
+}
+
+.dashboard-page__hero-description {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.dashboard-page__kpis {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.dashboard-page__kpi {
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.dashboard-page__kpi-label {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.dashboard-page__grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dashboard-page__transaction {
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  background: color-mix(in srgb, var(--card) 94%, transparent);
+  box-shadow: 0 8px 22px rgba(17, 24, 39, 0.08);
+}
+
+.dashboard-page__transaction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.dashboard-page__transaction-name {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.dashboard-page__meta,
+.dashboard-page__value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-page__impact-value {
+  color: #0f766e;
+}
+
+.dashboard-page__summary {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dashboard-page__narrative {
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(56, 189, 248, 0.17),
+      transparent 45%
+    ),
+    color-mix(in srgb, var(--card) 96%, transparent);
+}
+
+.dashboard-page__narrative-title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  color: #0f172a;
+}
+
+.dashboard-page__narrative-text {
+  margin: 0;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.dashboard-page__narrative-callout {
+  border-radius: 0.75rem;
+  background: rgba(15, 118, 110, 0.09);
+  padding: 0.9rem;
+  font-weight: 500;
+  color: #115e59;
+}
+
+.dashboard-page__status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dashboard-page__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-page__button {
+  border-radius: 999px;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .dashboard-page__kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-page__summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-page__kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dashboard-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .dashboard-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
